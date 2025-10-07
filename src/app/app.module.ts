@@ -10,6 +10,8 @@ import { NotFoundComponent } from './Layout/not-found/not-found.component';
 import { ListEventsComponent } from './Layout/list-events/list-events.component';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
+import { EventdetailsComponent } from './Layout/eventdetails/eventdetails.component';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -19,14 +21,16 @@ import { CardComponent } from './card/card.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
-    ListEventsComponent
+    ListEventsComponent,
+    EventdetailsComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CardComponent
+    CardComponent,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
