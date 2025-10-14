@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Layout/home/home.component';
-import { ListEventsComponent } from './Layout/list-events/list-events.component';
 import { NotFoundComponent } from './Layout/not-found/not-found.component';
-import { AppComponent } from './app.component';
-import { EventdetailsComponent } from './Layout/eventdetails/eventdetails.component';
+import { EventdetailsComponent } from './features/events/pages/eventdetails/eventdetails.component';
+import { UserlistComponent } from './userlist/userlist.component';
 
 const routes: Routes = [
   //{ path: "", component: AppComponent },
 
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
-  { path: "events", component: ListEventsComponent,
-    children:[
-      {path:'eventDetails/:param', component:EventdetailsComponent}
-    ]
-   },
-   {path:"user", loadChildren:()=>import('./user/user.module').then(m=>m.UserModule)},
+ {path:"testUser", component:UserlistComponent},
+
+
+   {path:'events', loadChildren:()=>import('./features/events/events.module').then(m=>m.EventsModule)},
+   {path:'tickets', loadChildren:()=>import('./features/tickets/tickets.module').then(m=>m.TicketsModule)},
+   {path:"users", loadChildren:()=>import('./features/users/users.module').then(m=>m.UsersModule)},
+   {path:"feedback", loadChildren:()=>import('./features/feedback/feedback.module').then(m=>m.FeedbackModule)},
   { path: "**", component:NotFoundComponent}
 ];
 

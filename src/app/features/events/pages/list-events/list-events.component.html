@@ -25,11 +25,14 @@
                         👍 Like
                     </button>
                     <span class="ms-2">{{ event.nbLikes }}</span>
-                    <!-- <button class="btn btn-sm btn-primary" routerLink="eventDetails/{{event.id}}"> -->
-                    <button class="btn btn-sm btn-primary" [routerLink]="['eventDetails', event.id]">
+                    <!-- <button class="btn btn-sm btn-primary" routerLink="eventDetails/{{event.id}}">  -->
+                     <button class="btn btn-sm btn-primary" [routerLink]="['details', event.id]">
                        
                         📢 Show Details
                     </button>
+                     <!-- <button class="btn btn-sm btn-primary" (click)="showDetails(event.id)"> 
+                       📢 Show Details
+                    </button> -->
                 </div>
 
             </div>

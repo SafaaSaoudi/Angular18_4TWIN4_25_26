@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Event } from '../../models/event';
+import { Event } from '../../../../models/event';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-list-events',
   templateUrl: './list-events.component.html',
@@ -15,10 +16,16 @@ searchTerm!:string;
     {id:3,titre:"Atelier de Cuisine",description:"Apprenez à cuisiner des plats italiens.",date:new Date("2025-11-20"),lieu:"Centre Culinaire",prix:50,organisateurId:3,imageUrl:"assets/images/cuisine.webp",nbPlaces:20,nbLikes:10}
   ];
 
+constructor(private R: Router){}
+
   increment_likes(event:Event){
     event.nbLikes+=1;
   }
   campare(event:Event) {
     return event.date < (new Date());
+  }
+
+  showDetails(id:number){
+      this.R.navigate(["events/details",id]);
   }
 }
