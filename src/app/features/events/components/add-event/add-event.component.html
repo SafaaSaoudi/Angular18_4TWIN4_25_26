@@ -1,0 +1,41 @@
+
+<label for="">Search:</label><input type="text" [formControl]="searchInput" />
+
+<form [formGroup]="eventForm" (ngSubmit)="add()" class="form-group">
+  <label for="titre">Titre:</label>
+  <input id="titre" formControlName="Titre"  class="form-control"/>
+  <span class="text-danger" *ngIf="eventForm.get('Titre')?.invalid && (eventForm.get('Titre')?.dirty || eventForm.get('Titre')?.touched)">Title is required</span><br>
+
+  <label for="description">Description:</label>
+  <input id="description" formControlName="Description" class="form-control"/>
+
+  <span class="text-danger" *ngIf="Description?.errors?.['required'] && Description?.touched">Description is required</span>
+  <span class="text-danger" *ngIf="Description?.errors?.['minlength'] && Description?.touched">Description must be at least 10 chars.</span>
+
+
+
+<div formGroupName="Place">
+  <label for="">Gov</label>
+  <input type="text" formControlName="gov" id="" class="form-control"/>
+
+  <label for="">Prov</label>
+  <input type="text" formControlName="prov" id="" class="form-control"/>
+
+  <label for="">Postal Code</label>
+  <input type="text" formControlName="postal_code" id="" class="form-control"/>
+ </div>
+
+    <div formArrayName="Fields">
+        <label for="">Fields</label> 
+        <button (click)="addField()" class="btn btn-info">+</button>
+
+    <div *ngFor="let field of Fields.controls; let i=index" [formGroupName]="i">
+      <input type="text" formControlName="name" id="" class="form-control"/>    
+    </div>
+  </div>
+
+
+
+  <button type="submit">Ajouter Événement</button>
+</form>
+
