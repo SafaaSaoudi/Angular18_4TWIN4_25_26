@@ -1,0 +1,14 @@
+<form #partcipationF="ngForm" >
+<label for="">Email</label>
+<input type="email" name="email" #email="ngModel" ngModel class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> 
+<span *ngIf="email?.errors?.['required'] && email.touched" class="text-danger"> Email is required </span>
+<span *ngIf="email?.errors?.['pattern'] && email.touched" class="text-danger"> Email format is invalid </span>
+<label for="">Nbre de places</label>
+<input type="number" name="nbrePlaces" #nbrePlaces="ngModel" ngModel class="form-control" >
+
+<label for="">Prix Total</label>
+<input type="number" name="prixTotal" [ngModel]="prix * nbrePlaces.value"  #prixTotal="ngModel" ngModel class="form-control" disabled>
+
+<button type="submit" (click)="confirmer(partcipationF)">participer</button>
+</form>
+ 

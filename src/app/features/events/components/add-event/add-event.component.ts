@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Event } from '../../../../models/event';
+import { EventService } from '../../../../data-acess/event.service';
 
 @Component({
   selector: 'app-add-event',
@@ -23,6 +24,10 @@ export class AddEventComponent {
 });
 
 searchInput= new FormControl('');
+
+constructor(private eventService: EventService){}
+
+
 get Description(){
   return this.eventForm.get('Description');
 }
@@ -38,5 +43,9 @@ add(){
   console.log(this.eventForm);
   this.newevent= this.eventForm.getRawValue();
   console.log(this.newevent);
+  //service event to add the newevent
+  this.eventService.liste.push(this.newevent);
+
+  
 }
 }
