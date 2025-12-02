@@ -15,6 +15,7 @@ import { FeedbackModule } from './features/feedback/feedback.module';
 import { UsersModule } from './features/users/users.module';
 import { UserlistComponent } from './userlist/userlist.component';
 import { UseritemComponent } from './useritem/useritem.component';
+import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { UseritemComponent } from './useritem/useritem.component';
     FeedbackModule,
     UsersModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

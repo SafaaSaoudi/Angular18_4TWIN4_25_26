@@ -1,25 +1,23 @@
 
 <label for="">Search:</label><input type="text" [formControl]="searchInput" />
 
-<form [formGroup]="eventForm" (ngSubmit)="add()" class="form-group">
+<form [formGroup]="eventForm"  class="form-group">
   <label for="titre">Titre:</label>
-  <input id="titre" formControlName="Titre"  class="form-control"/>
-  <span class="text-danger" *ngIf="eventForm.get('Titre')?.invalid && (eventForm.get('Titre')?.dirty || eventForm.get('Titre')?.touched)">Title is required</span><br>
+  <input id="titre" formControlName="titre"  class="form-control"/>
+  <span class="text-danger" *ngIf="eventForm.get('titre')?.invalid && (eventForm.get('titre')?.dirty || eventForm.get('titre')?.touched)">Title is required</span><br>
 
   <label for="description">Description:</label>
-  <input id="description" formControlName="Description" class="form-control"/>
-
-  <span class="text-danger" *ngIf="Description?.errors?.['required'] && Description?.touched">Description is required</span>
-  <span class="text-danger" *ngIf="Description?.errors?.['minlength'] && Description?.touched">Description must be at least 10 chars.</span>
-
-
-
+  <input id="description" formControlName="description" class="form-control"/>
+  <!-- <span class="text-danger" *ngIf="eventForm.get('description')?.errors?.['required'] && eventForm.get('description')?.touched">Description is required</span>
+  <span class="text-danger" *ngIf="eventForm.get('description')?.errors?.['minlength'] && eventForm.get('description')?.touched">Description must be at least 10 chars.</span> -->
+<!-- 
 <div formGroupName="Place">
   <label for="">Gov</label>
-  <input type="text" formControlName="gov" id="" class="form-control"/>
+  <input type="text" formControlName="" id="" class="form-control"/>
 
   <label for="">Prov</label>
-  <input type="text" formControlName="prov" id="" class="form-control"/>
+  <input type="text" formControlName="
+  " id="" class="form-control"/>
 
   <label for="">Postal Code</label>
   <input type="text" formControlName="postal_code" id="" class="form-control"/>
@@ -32,10 +30,24 @@
     <div *ngFor="let field of Fields.controls; let i=index" [formGroupName]="i">
       <input type="text" formControlName="name" id="" class="form-control"/>    
     </div>
-  </div>
+  </div> -->
+<label for="date">Date:</label>
+  <input id="date" formControlName="date" class="form-control"/>
+<label for="lieu">Lieu:</label>
+  <input id="lieu" formControlName="lieu" class="form-control"/>
 
+<label for="prix">Prix:</label>
+  <input id="prix" formControlName="prix" class="form-control"/>
 
+<label for="organisateurId">Organizer</label>
+  <input id="organisateurId" formControlName="organisateurId" class="form-control"/>
+<label for="imageUrl">Image URL:</label>
+  <input id="imageUrl" formControlName="imageUrl" class="form-control"/>
+<label for="nbPlaces">Number of Places:</label>
+  <input id="nbPlaces" formControlName="nbPlaces" class="form-control"/>
+<label for="nbLikes">Number of Likes:</label>
+  <input id="nbLikes" formControlName="nbLikes" class="form-control"/>  
 
-  <button type="submit">Ajouter Événement</button>
+  <button class="btn btn-primary" type="submit">Ajouter Événement</button>
 </form>
 

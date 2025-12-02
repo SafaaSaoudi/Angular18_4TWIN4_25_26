@@ -16,7 +16,7 @@ searchTerm!:string;
 constructor(private R: Router, private eventS: EventService){}
 
 ngOnInit(){
-  this.Eventlist= this.eventS.liste
+ this.eventS.getAllEvents().subscribe(data => this.Eventlist=data);
 }
   increment_likes(event:Event){
     event.nbLikes+=1;

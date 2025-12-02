@@ -19,7 +19,7 @@ export class EventdetailsComponent {
    this.actR.paramMap.subscribe( 
     params=>this.id= Number(params.get('param')));
 
-this.event= this.eventS.liste.find(e=>e.id==this.id)!;
+//this.event= this.eventS.liste.find(e=>e.id==this.id)!;
 //console.log(this.event);
 
 

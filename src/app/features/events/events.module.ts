@@ -9,6 +9,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { ParticipationFormComponent } from './components/participation-form/participation-form.component';
+import { UpdateeventComponent } from './pages/updateevent/updateevent.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ParticipationFormComponent } from './components/participation-form/part
     EventCardComponent,
     SearchBarComponent,
     AddEventComponent,
-    ParticipationFormComponent
+    ParticipationFormComponent,
+    UpdateeventComponent
   ],
   imports: [
     CommonModule,
