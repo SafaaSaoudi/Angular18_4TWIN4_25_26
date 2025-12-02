@@ -1,6 +1,8 @@
 
-<label for="">Search:</label><input type="text" [formControl]="searchInput" />
-
+<div class="container">
+<!-- <label for="">Search:</label><input type="text" [formControl]="searchInput" /> -->
+<h2 style="text-align: center;" *ngIf="mode=='add'">Add New Event</h2>
+ <h2 style="text-align: center;" *ngIf="mode=='edit'">Edit Event</h2>
 <form [formGroup]="eventForm"  class="form-group">
   <label for="titre">Titre:</label>
   <input id="titre" formControlName="titre"  class="form-control"/>
@@ -48,6 +50,7 @@
 <label for="nbLikes">Number of Likes:</label>
   <input id="nbLikes" formControlName="nbLikes" class="form-control"/>  
 
-  <button class="btn btn-primary" type="submit">Ajouter Événement</button>
+  <button class="btn btn-primary" type="submit" (click)="add()">{{mode}} Événement</button>
 </form>
 
+</div>

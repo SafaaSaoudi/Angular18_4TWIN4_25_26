@@ -3,6 +3,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Event } from '../../../../models/event';
 import { EventService } from '../../../../data-acess/event.service';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-event',
@@ -27,29 +28,40 @@ export class AddEventComponent {
 
 searchInput= new FormControl('');
 
-//constructor(private eventService: EventService){}
-
 eventService= inject(EventService);
+route= inject(ActivatedRoute);
+R= inject (Router)
+id!:number;
+mode='add';
 
-
-
-// addField() {
-//   this.Fields.push(new FormControl(''));
-// }
-
-// add(){
-//   console.log(this.eventForm);
-//   this.newevent= this.eventForm.getRawValue();
-//   console.log(this.newevent);
-//   //service event to add the newevent
-//   this.eventService.addEvent(this.newevent).subscribe({
-//     next: (data) => {
-//      alert("Event added successfully");
-//     },
-//     error: (error) => {
-//       console.error("Error adding event", error);
-//     }
-//   });
-
+ngOnInit(){
+   this.id= this.route.snapshot.params['id'];
+   this.mode= this.route.snapshot.data['mode'];
   
+    if(this.mode==='edit'){
+      this.eventService.getEventById(this.id).subscribe(data => {
+        this.newevent = data;
+        this.eventForm.patchValue(this.newevent);});
+    }
+  }
+
+  add(){
+    if(this.mode==='add'){
+      this.eventForm.value.id = undefined;
+      let data: any = this.eventForm.value;
+      this.eventService.addEvent(data).subscribe(data=>{
+        console.log("Event added successfully", data);
+        this.R.navigate(['/events']);
+      });
+    }
+    else if(this.mode==='edit'){
+      let data: any = this.eventForm.value;
+      this.eventService.updateEvent(data).subscribe(data=>{
+        console.log("Event updated successfully", data);
+        this.R.navigate(['/events']);
+      });
+    }
+
+  }
 }
+
