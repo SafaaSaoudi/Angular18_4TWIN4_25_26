@@ -17,11 +17,19 @@
       "role": "user"
     },
     {
+<<<<<<< HEAD
       "id": "007a",
       "email": "contact@aurianeparishotel.com",
       "password": "AZERTY",
       "firstName": "Hotel",
       "lastName": "DE VERSAILLE",
+=======
+      "id": "bb29",
+      "email": "test@mail",
+      "password": "testtest",
+      "firstName": "Safa",
+      "lastName": "Saoudi",
+>>>>>>> ade93b9 (readme)
       "role": "user"
     }
   ],
