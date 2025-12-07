@@ -23,24 +23,9 @@
       "firstName": "Hotel",
       "lastName": "DE VERSAILLE",
       "role": "user"
-    },
-    {
-      "id": "0453",
-      "email": "safa.saoudi@esprit.tn",
-      "password": "123456789",
-      "firstName": "Safa",
-      "lastName": "Saoudi",
-      "role": "user"
-    },
-    {
-      "id": "c4df",
-      "email": "safa.saoudi@esprit.tnNN",
-      "password": "AZERTY",
-      "firstName": "Safa",
-      "lastName": "Saoudi",
-      "role": "user"
     }
   ],
+  
   "listEvents": [
     {
       "id": "1",
